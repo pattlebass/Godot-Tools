@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://scenes/player/player.gd" type="Script" id=1]
+[ext_resource path="res://scenes/player/Inventory.gd" type="Script" id=2]
 
 [sub_resource type="CapsuleMesh" id=1]
 radius = 0.5
@@ -33,3 +34,12 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.583501, 0 )
 [node name="Camera" type="ClippedCamera" parent="Pivot"]
 current = true
 fov = 80.0
+
+[node name="RayCast" type="RayCast" parent="Pivot/Camera"]
+enabled = true
+cast_to = Vector3( 0, 0, -3 )
+collision_mask = 524288
+collide_with_areas = true
+
+[node name="Inventory" type="Node" parent="."]
+script = ExtResource( 2 )
